@@ -1,0 +1,51 @@
+package com.Lockedme;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+import jdk.internal.misc.FileSystemOption;
+
+public class LockedMeProject 
+{
+	static final String folderpath="D:\\my java\\Myphase1project\\LockedMeFiles";
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+        List<String> fileNames = FileManager.getAllFiles(folderpath);
+        
+        for(String f:fileNames)
+        	System.out.println(f);
+        
+	}
+	    //Variable declaration
+	    Scanner obj=new Scanner(System.in);
+	    String fileName;
+	    int linescount;
+	    List<String> content=new Arrays();
+	    
+	    //Read file name from user
+	    System.out.println("Enter file Name:")
+	    fileName=obj.nextLine();
+	    
+	    //Read number of lines from user
+	    System.out.println("Enter how many lines in the file:");
+	    linescount=Integer.parseInt(obj.netline());
+	    
+	    //Read Lines from user
+	    for(int i=1;i<=linesCount, i++)
+	    {
+	    	System.out.println("Enter line"+1+":");
+	    	content.add(obj.nextLine());
+	    }	
+         
+	    //save the content into the file
+	    boolean isSaved=FileManager.createFiles(folderpath, fileName, content);
+	    if(issaved)
+	    	System.out.println("file and data saved successfully");
+	    else
+	    	System.out.println("some error occured.Please contact admin@sai.com");
+		}
+	    
+}

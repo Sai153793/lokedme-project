@@ -1,0 +1,76 @@
+package com.Lockedme;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+public class LockedMeProject 
+{
+	static final String folderpath="D:\\my java\\Myphase1project\\LockedMeFiles";
+	private static final FileManager LockedMeMain = null;
+
+	public static void main(String[] args) {
+		deleteFiles();
+		
+		
+	}
+	
+		
+		public static void getAllFiles() {
+	// TODO Auto-generated method stub
+    List<String> fileNames = FileManager.getAllFiles(folderpath);
+    
+    for(String f:fileNames)
+    	System.out.println(f);
+		}
+		
+		public static void addFiles() {
+    //Variable declaration
+    Scanner obj = new Scanner(System.in);
+    String filename;
+    int linesCount;
+    List<String> content = new ArrayList<String>();
+    
+    //Read file name from user
+    System.out.println("Enter file Name:");
+	filename =obj.nextLine();
+    
+    //Read number of lines from user
+	System.out.println("Enter how many lines in the file:");
+	linesCount=Integer.parseInt(obj.nextLine());
+    
+    //Read Lines from user
+	for (int i = 1;i<=linesCount;i++)
+    {
+    	System.out.println("Enter line"+1+":");
+    	content.add(obj.nextLine());
+    }	
+     
+    //save the content into the file
+	boolean isSaved = LockedMeMain.createFiles(folderpath, filename, content);
+    if(isSaved)
+    	System.out.println("file and data saved successfully");
+    else
+    	System.out.println("some error occured.Please contact admin@sai.com");
+    
+  //Close scanner object
+    obj.close();
+		}
+    
+    public static void deleteFiles() {
+    	 //code for deleting a file
+	    String fileName;
+	    Scanner obj=new Scanner(System.in);
+	    System.out.println("Enter file name to be deleted:");
+	    fileName=obj.nextLine();
+	    
+	    boolean isDeleted=FileManager.deleteFile(folderpath,fileName);
+	    
+	    if(isDeleted)
+	    	System.out.println("File deleted successfully");
+	    else
+	    	System.out.println("Either file not there or some access issue");
+	    
+    	}
+}  
+
